@@ -91,7 +91,7 @@ func broadcastHandler(w http.ResponseWriter, r *http.Request) {
     counter++
 
     broadcast(counter)
-    fmt.Fprintf(w, "New value %v", counter)
+    fmt.Fprintf(w, "%v", counter)
 }
 
 func main() {

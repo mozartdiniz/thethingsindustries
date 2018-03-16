@@ -1,0 +1,23 @@
+.IncrementButton {
+  background: url('../../assets/background_button.png');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  border: none;
+  width: 310px;
+  padding: 19px;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 80px auto;
+  display: block;
+  line-height: 43px;
+  cursor: pointer;
+  outline: none;
+}
+
+.IncrementButton:active {
+  background-size: 90%;
+  font-size: 40px;
+  color: black;
+}
