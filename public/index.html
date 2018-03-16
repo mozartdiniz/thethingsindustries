@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var sock = null;
+        var wsuri = "ws://127.0.0.1:3000/ws";
+
+        window.onload = function() {
+
+            console.log("onload");
+
+            sock = new WebSocket(wsuri);
+
+            sock.onopen = function() {
+                console.log("connected to " + wsuri);
+                sock.send('');
+            }
+
+            sock.onclose = function(e) {
+                console.log("connection closed (" + e.code + ")");
+            }
+
+            sock.onmessage = function(e) {
+                const text = document.createElement('div');
+                text.innerHTML = e.data;
+                document.body.appendChild(text);
+            }
+        };
+
+        function send() {
+            fetch('incrementNumber', {
+                method: 'post',
+            }).then(function(response) {
+                return response.text();
+            }).then(function(data) {
+                console.log('Created Gist:', data);
+            });
+        };
+
+    </script>
+    <h1>WebSocket Echo Test</h1>
+    <form>
+        <p>
+            Message: <input id="message" type="text" value="Hello, world!">
+        </p>
+    </form>
+    <button onclick="send();">Send Message</button>
+</body>
+</html>
