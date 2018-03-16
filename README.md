@@ -42,7 +42,11 @@ yarn install
 Can take a while, but when it finish you just need to run:
 
 ```
-yarn start
+yarn build
 ```
 
-This code will run the front-end deve server on the http://localhost:3001
+This code will build the project again on the public folder, from where the go server is serving the files.
+
+
+
+
