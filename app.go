@@ -101,6 +101,7 @@ func main() {
     http.HandleFunc("/incrementNumber", broadcastHandler)
     http.Handle("/ws", wsHandler)
 
+    fmt.Printf("Running on http://localhost:3000")
     http.ListenAndServe(":3000", nil)
-    log.Println("Listening...")
+
 }
